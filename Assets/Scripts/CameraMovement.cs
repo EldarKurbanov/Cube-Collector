@@ -27,5 +27,6 @@ public class CameraMovement : MonoBehaviour
         offsetY = Quaternion.AngleAxis (Input.GetAxis("Mouse Y") * turnSpeed, Vector3.right) * offsetY;
         transform.position = player.position + offsetX; 
         transform.LookAt(player.position);
+        player.rotation = transform.rotation;
     }
 }
