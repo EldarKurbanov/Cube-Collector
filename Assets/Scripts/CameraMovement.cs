@@ -12,7 +12,7 @@ public class CameraMovement : MonoBehaviour
  
     public float height = 1f;
     public float distance = 2f;
-     
+    
     private Vector3 offsetX;
     private Vector3 offsetY;
      
@@ -28,7 +28,7 @@ public class CameraMovement : MonoBehaviour
             return;*/
         offsetX = Quaternion.AngleAxis (Input.GetAxis("Mouse X") * turnSpeed, Vector3.up) * offsetX;
         offsetY = Quaternion.AngleAxis (Input.GetAxis("Mouse Y") * turnSpeed, Vector3.right) * offsetY;
-        transform.position = player.position + offsetX; 
+        transform.position = player.position + offsetX;
         transform.LookAt(player.position);
         player.rotation = transform.rotation;
     }
