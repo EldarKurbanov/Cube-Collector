@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 
-public class PlayerMotion : MonoBehaviour
+public class PlayerMotion : NetworkBehaviour
 {
     public float speed = 0.1f;
     public Transform sphere;
@@ -16,6 +17,9 @@ public class PlayerMotion : MonoBehaviour
     
     void Update()
     {
+        if (!isLocalPlayer)
+            return;
+    
         float h = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
         float v = Input.GetAxis("Vertical") * speed * Time.deltaTime;
 
@@ -26,6 +30,7 @@ public class PlayerMotion : MonoBehaviour
         Vector3 FORWARD = camera.TransformDirection(Vector3.forward);
         FORWARD.y = transform.rotation.eulerAngles.y;
 
+        //var networkTransform = GetComponent<NetworkTransform>();
         transform.localPosition += RIGHT * h;
         transform.localPosition += FORWARD * v;
     }
