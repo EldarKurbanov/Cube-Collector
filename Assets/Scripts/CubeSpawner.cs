@@ -10,7 +10,7 @@ public class CubeSpawner : NetworkBehaviour
     public GameObject exampleCube;
     private float xMin, xMax, zMin, zMax;
     public int cubeLimit = 10;
-    private int destroyedCubeCounter;
+    public int destroyedCubeCounter;
     private Text scoreShower;
     private GameObject children;
 

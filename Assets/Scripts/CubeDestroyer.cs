@@ -27,4 +27,9 @@ public class CubeDestroyer : NetworkBehaviour
         Destroy(gameObject);
         _cubeSpawner.incrementCubeCounter();
     }
+
+    public void DestroyMe()
+    {
+        Destroy(gameObject);
+    }
 }
